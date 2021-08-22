@@ -19,6 +19,7 @@ const Cadastro = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(cadastro)
             }).then(() => {
+                history.push('/');
             })
         } else {
             alert('A confirmação da senha deve ser igual a senha!');
