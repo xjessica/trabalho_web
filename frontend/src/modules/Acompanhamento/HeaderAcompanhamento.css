@@ -7,14 +7,14 @@ header.headerAcompanhamento {
     grid-template-columns: 1fr 8fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-        "image name"
-        "image info";
+        "image name buttonSair"
+        "image info buttonSair";
 }
 
 img.imagePerfil {
     width: 100px;
     height: 100px;
-    margin-left: 40px;
+    margin-left: 20px;
     margin-top: 20px;
     grid-area: image;
 }
@@ -24,6 +24,7 @@ h1.namePerfil {
     font-size: 40px;
     color: #E1E1E1;
     margin-bottom: 0px;
+    margin-top: 24px;
 }
 
 h2.informationPerfil {
@@ -31,4 +32,11 @@ h2.informationPerfil {
     font-size: 18px;
     color: #E1E1E1;
     margin-top: 5px;
+}
+
+button {
+    grid-area: buttonSair;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100px;
 }

@@ -2,7 +2,9 @@ import React from 'react';
 import './HeaderAcompanhamento.css'
 import imagePerfil from '../../assets/img/perfil.png'
 
+import { Button, HFlow, VFlow } from 'bold-ui'
 
+// exemplo de estrutura:
 const initialState = {
     name: 'Marcelo Contin',
     enrolment: '19150807',
@@ -23,6 +25,7 @@ export default class HeaderAcompanhamento extends React.Component {
                 <img className="imagePerfil" src={imagePerfil}></img>
                 <h1 className="namePerfil">{this.state.name}</h1>
                 <h2 className="informationPerfil">{this.state.course} - {this.state.enrolment}</h2>
+                <Button kind="primary" skin='default' >Sair</Button>
             </header>
         )
     }
