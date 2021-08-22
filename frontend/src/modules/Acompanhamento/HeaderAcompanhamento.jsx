@@ -2,7 +2,7 @@ import React from 'react';
 import './HeaderAcompanhamento.css'
 import imagePerfil from '../../assets/img/perfil.png'
 
-import { Button, HFlow, VFlow } from 'bold-ui'
+import { Button } from 'bold-ui'
 
 // exemplo de estrutura:
 const initialState = {
