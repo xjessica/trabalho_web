@@ -4,9 +4,21 @@ div.acompanhamento {
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 150px 1fr;
+    grid-template-rows: 150px 1fr 40px;
     grid-template-areas:
         "header"
-        "body";
+        "body"
+        "footer";
 }
 
+header.headerAcompanhamento {
+    grid-area: header;
+}
+
+div.bodyAcompanhamento {
+    grid-area: body;
+}
+
+footer.footerLindo {
+    grid-area: footer;
+}
