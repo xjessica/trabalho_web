@@ -15,14 +15,10 @@ export default class HeaderAcompanhamento extends React.Component {
 
     state = { ...initialState }
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <header className="headerAcompanhamento">
-                <img className="imagePerfil" src={imagePerfil}></img>
+                <img className="imagePerfil" src={imagePerfil} alt="imagem perfil"></img>
                 <h1 className="namePerfil">{this.state.name}</h1>
                 <h2 className="informationPerfil">{this.state.course} - {this.state.enrolment}</h2>
                 <Button kind="primary" skin='default' >Sair</Button>
