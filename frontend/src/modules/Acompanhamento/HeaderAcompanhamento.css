@@ -1,0 +1,43 @@
+header.headerAcompanhamento {
+    background-color: #1659BF;
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "image name buttonSair"
+        "image info buttonSair";
+}
+
+img.imagePerfil {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 20px;
+    grid-area: image;
+}
+
+h1.namePerfil {
+    grid-area: name;
+    font-size: 40px;
+    color: #E1E1E1;
+    margin-bottom: 0px;
+    margin-top: 24px;
+}
+
+h2.informationPerfil {
+    grid-area: info;
+    font-size: 18px;
+    color: #E1E1E1;
+    margin-top: 5px;
+}
+
+button {
+    grid-area: buttonSair;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    width: 100px;
+}
