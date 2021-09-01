@@ -14,6 +14,11 @@ const TelaInicial = () => {
 
     const handleSubmit = (e) => {
         const cadastro = {  login, senha };
+        history.push("/acompanhamento")
+    }
+    const eventCadastro = (e) => {
+        const cadastro = {  login, senha };
+        history.push("/Cadastro")
     }
     return (
         <>
@@ -50,13 +55,13 @@ const TelaInicial = () => {
                     </div>
                     </div>
                     <div className="div-btn">
-                    <button className='btn-acesso'>Acessar</button> 
+                    <button className='btn-acesso'>Acessar</button>
                 </div>
+                <button className='btn-acesso' onClick={eventCadastro}>Cadastro</button>
                 </form>
             <div className="img-btn">
                 <div className="div-img"></div>
                 <img src={grade} className='img-grade'></img>
-
             </div>
             </div>
         </>

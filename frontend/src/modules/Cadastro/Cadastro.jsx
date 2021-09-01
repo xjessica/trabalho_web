@@ -30,6 +30,10 @@ const Cadastro = () => {
             alert('A confirmação da senha deve ser igual a senha!');
         }
     }
+
+    const eventCadastro = (e) => {        
+        history.push("/Acompanhamento")
+    }
     return (
         <>
             <HeaderCadastro />
@@ -116,7 +120,7 @@ const Cadastro = () => {
                 <div className="div-img"></div>
                 <img src={grade} className='img-grade'></img>
                 <div className="div-btn">
-                    <button className='btn-cadastro'>Confirmar</button> 
+                    <button className='btn-cadastro' onClick={eventCadastro}>Confirmar</button> 
 
                 </div>
             </div>
