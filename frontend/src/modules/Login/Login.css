@@ -1,0 +1,90 @@
+*{
+    background-color:#e5e5e5;
+}
+
+.cadastro{
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    display:grid;
+    grid-template-columns: [grid2] 8fr [grid1] 2fr; 
+}
+
+.form-cadastro{
+    grid-area: grid1;
+    width:60%;
+    height:100%;
+    position: absolute;
+    margin:00px 30px;
+    padding:20px;
+    display:flex;
+    flex-wrap:nowrap; 
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items:flex;    
+}
+.img-btn{
+    grid-area:grid2;
+    position: relative;
+    display: flex;
+    flex-direction:column;    
+}
+.img-grade{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.div-componentes{
+    position:relative; 
+    display:flex;
+    flex-direction:row;
+    margin:20px 20px 40px 0px;
+    padding:0px;
+}
+.div-componente{
+    position:relative; 
+    display:flex;   
+    flex-direction:column;
+    justify-content: space-between;
+    margin-right:2%;
+    width: 200px;
+    padding:0;
+}
+
+#login-conf{
+    width:200px;
+}
+
+button.btn-acesso {   
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 250px;
+    height: 40px;  
+    border-radius: 10px;
+    background-color:#1659BF;
+    color:white; 
+ 
+}
+
+input{
+    background-color: white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+select{
+    background-color:white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width:400px;
+}
+option{
+    background-color:white;
+}
