@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import TelaInicial from './modules/Login/Login'
+import Acompanhamento from './modules/Acompanhamento/Acompanhamento';
+import Cadastro from './modules/Cadastro/Cadastro';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,68 +13,22 @@ import {
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/cadastro">Cadastro</Link>
-            </li>
-            <li>
-              <Link to="/acompanhamento/computacao">Acompanhamento Computação</Link>
-            </li>
-            <li>
-              <Link to="/acompanhamento/sistemas">Acompanhamento Sistemas</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
       <Switch>
         <Route path="/login">
-          <Login />
+          <TelaInicial />
         </Route>
         <Route path="/cadastro">
           <Cadastro />
         </Route>
-        <Route path="/acompanhamento/computacao">
-          <AcompanhamentoComp/>
-        </Route>
-        <Route path="/acompanhamento/sistemas">
-          <AcompanhamentoSis/>
+        <Route path="/acompanhamento">
+          <Acompanhamento/>
         </Route>
         <Route path="/">
-          <Login />
+          <TelaInicial />
         </Route>
       </Switch>
     </Router>
   );
 }
-
-function Login() {
-  return <h2>
-    Tela login
-  </h2>
-}
-
-function Cadastro() {
-  return <h2>
-    Tela cadastro
-  </h2>
-}
-
-function AcompanhamentoComp() {
-  return <h2>
-    Acompanhamento Computação
-  </h2>
-} 
-
-function AcompanhamentoSis() {
-  return <h2>
-    Acompanhamento Sistemas
-  </h2>
-} 
 
 export default App;
