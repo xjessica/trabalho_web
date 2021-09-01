@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Cadastro from './modules/Cadastro/Cadastro';
-// import reportWebVitals from './reportWebVitals';
+import TelaLogin  from "./modules/Login/Login";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Cadastro />
+    <TelaLogin />
   </React.StrictMode>,
   document.getElementById('root')
 );
