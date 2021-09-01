@@ -1,0 +1,22 @@
+.labelFase {
+    color: #505050;
+}
+
+.rowSubjects {
+    background-color: #C4C4C433;
+}
+
+.tabelaAcompanhamento {
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    width: 100%;
+}
+
+.bodyAcompanhamento {
+    margin-top: 50px;
+    align-items: center;
+}
+
+.divButton {
+    margin-left: 65px;
+}
