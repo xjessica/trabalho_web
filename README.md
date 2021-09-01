@@ -7,4 +7,7 @@ Projeto de acompanhamento da grade de materias dos cursos de Sistemas de Informa
 Para iniciar o frontend basta utlizar os seguintes comandos:
 
 `npm install` ou `yarn install`
+
+E depois:
+
 `npm start` ou `yarn start`
