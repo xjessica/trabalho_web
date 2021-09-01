@@ -57,9 +57,9 @@ const TelaInicial = () => {
                     <div className="div-btn">
                     <button className='btn-acesso'>Acessar</button>
                 </div>
+                <button className='btn-acesso' onClick={eventCadastro}>Cadastro</button>
                 </form>
             <div className="img-btn">
-                <button className='btn-acesso' onClick={eventCadastro}>Cadastro</button>
                 <div className="div-img"></div>
                 <img src={grade} className='img-grade'></img>
             </div>
