@@ -24,4 +24,11 @@ class UserCourseService(
         return UserCourseDto(updatedCourse)
     }
 
+    fun unmark(principal: Principal, subjectId: String): UserCourseDto {
+        val user = userRepository.findByEmail(principal.name) ?: throw UserNotFoundException()
+        val updatedCourse = user.course.unmark(subjectId)
+        userRepository.save(user.copy(course = updatedCourse))
+        return UserCourseDto(updatedCourse)
+    }
+
 }

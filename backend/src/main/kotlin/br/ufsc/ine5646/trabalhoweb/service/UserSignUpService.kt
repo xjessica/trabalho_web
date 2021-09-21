@@ -20,7 +20,7 @@ class UserSignUpService(
     fun signUp(userDTO: UserDTO) {
         if (!userRepository.existsByEmail(userDTO.email)) {
             userRepository.save(map(userDTO))
-        }
+        } else throw DuplicateUserException()
     }
 
     private fun map(userDTO: UserDTO): User {
@@ -28,13 +28,9 @@ class UserSignUpService(
             userId = ObjectId(),
             name = userDTO.name,
             encryptedPassword = bcrypt.encode(userDTO.rawPassword),
-            courseRepository.findByIdOrNull(userDTO.courseCode) ?: invalidCourse(userDTO),
+            courseRepository.findByIdOrNull(userDTO.courseCode) ?: throw CourseNotFoundException(),
             userDTO.email
         )
-    }
-
-    private fun invalidCourse(userDTO: UserDTO): Nothing {
-        throw IllegalArgumentException("Course ${userDTO.courseCode} does not exist")
     }
 
 }

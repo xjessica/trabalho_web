@@ -2,7 +2,8 @@ package br.ufsc.ine5646.trabalhoweb.model
 
 import br.ufsc.ine5646.trabalhoweb.model.SubjectStatus.COMPLETE
 import br.ufsc.ine5646.trabalhoweb.model.SubjectStatus.PENDING
-import br.ufsc.ine5646.trabalhoweb.service.UnmetRequirementsException
+import br.ufsc.ine5646.trabalhoweb.service.SubsequentSubjectDependencyException
+import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.repository.MongoRepository
@@ -14,16 +15,32 @@ data class Course(@Id val code: String, val name: String, val subjects: List<Sub
 
     fun complete(subjectId: String): Course {
         val subject = subjects.first { it.id == subjectId }
+        if (subject.isComplete()) return this
         val missingRequirements = subjects
             .filter { it.id in subject.requires }
-            .filterNot(Subject::isComplete)
+            .filter(Subject::isPending)
             .map(Subject::id)
 
         return when {
             missingRequirements.isEmpty() -> copy(subjects = subjects.toMutableList().apply {
                 this[indexOf(subject)] = subject.copy(status = COMPLETE)
             })
-            else -> throw UnmetRequirementsException(missingRequirements)
+            else -> throw SubsequentSubjectDependencyException(missingRequirements)
+        }
+    }
+
+    fun unmark(subjectId: String): Course {
+        val subject = subjects.first { it.id == subjectId }
+        if (subject.isPending()) return this
+        val completedSubsequentSubjects = subjects
+            .filter { subject.id in it.requires }
+            .filter(Subject::isComplete)
+            .map(Subject::id)
+        return when {
+            completedSubsequentSubjects.isEmpty() -> copy(subjects = subjects.toMutableList().apply {
+                this[indexOf(subject)] = subject.copy(status = PENDING)
+            })
+            else -> throw SubsequentSubjectDependencyException(completedSubsequentSubjects)
         }
     }
 
@@ -37,7 +54,10 @@ data class Subject(
     val status: SubjectStatus = PENDING
 ) {
 
+    @JsonIgnore
     fun isComplete() = COMPLETE == status
+    @JsonIgnore
+    fun isPending() = PENDING == status
 
 }
 
@@ -55,3 +75,5 @@ data class UserCourseDto(val courseSubjects: Map<Int, List<Subject>>) {
 }
 
 data class MissingRequirementsDto(val missingRequirements: List<String>)
+data class SubsequentDependenciesDto(val missingRequirements: List<String>)
+

@@ -5,12 +5,14 @@ import br.ufsc.ine5646.trabalhoweb.model.LoginDTO
 import br.ufsc.ine5646.trabalhoweb.model.UserDTO
 import br.ufsc.ine5646.trabalhoweb.service.UserSignInService
 import br.ufsc.ine5646.trabalhoweb.service.UserSignUpService
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.validation.FieldError
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.MethodArgumentNotValidException
+import org.springframework.web.bind.annotation.*
+import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
+
 
 @RestController
 @Validated
@@ -28,6 +30,15 @@ class AuthController(
     @PostMapping("/signin")
     fun signIn(@Valid @RequestBody loginDto: LoginDTO): JwtResponse {
         return userSignInService.signIn(loginDto)
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException::class)
+    fun handleSubsequentDependency(
+        httpServletRequest: HttpServletRequest,
+        exception: MethodArgumentNotValidException
+    ): Map<String, String?> {
+       return exception.bindingResult.allErrors.associate { (it as FieldError).field to it.defaultMessage }
     }
 
 }
