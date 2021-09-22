@@ -39,7 +39,7 @@ deve ser repassado via Bearer para chamadas subsequentes, até que o token expir
 Os parâmetros do JWT (secret e expiração) são especificados diretamente no profile local e externalizados via variável de ambiente 
 no profile de produção.
 
-Rotas definidas a partir de: [AuthControler](backend/src/main/kotlin/controller/AuthControler.kt)
+Rotas definidas a partir de: [AuthControler](backend/src/main/kotlin/br/ufsc/ine5646/trabalhoweb/controller/AuthController.kt)
 
 Para criar um usuário (campos validados via JSR 303):
 
@@ -67,7 +67,7 @@ Para realizar login (campos validados via JSR 303):
 
 ### Operações
 
-Rotas definidas a partir de: [UserCourseController](backend/src/main/kotlin/controller/UserCourseController.kt)
+Rotas definidas a partir de: [UserCourseController](backend/src/main/kotlin/br/ufsc/ine5646/trabalhoweb/controller/UserCourseController.kt)
 
 Para buscar as disciplinas do usuário:
 
